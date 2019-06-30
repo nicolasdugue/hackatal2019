@@ -61,6 +61,24 @@ Afin de ne pas considérer dans la suite un vocabulaire trop large, et surtout d
 	>>> wv_from_text.most_similar("gilet_n")
 	[('veste_n', 0.7116566896438599), ('pantalon_n', 0.6993970274925232), ('pull_n', 0.6646631360054016), ('pare-balles_n', 0.6379226446151733), ('jupe_n', 0.6134262084960938), ('blouson_n', 		0.60909503698349), ('chemise_n', 0.5901532769203186), ('casquette_n', 0.5671770572662354), ('jupette_n', 0.5362040996551514), ('enfiler_v', 0.5351220369338989)]
 
+#### Exemples intéressants
+
+- manifester_v
+- grenade_n
+- gauche_n
+- insoumis_a
+- monarque_n
+- évasion_n
+- maçonnique_a
+- fonctionnaire_n
+- patriote_a
+- laïcité_n
+- féministe_a
+- mariage_n
+- famille_n
+
+
+
 ## Dépendances: 
 
  

@@ -2,9 +2,12 @@
 
 ## Participants
 
-- Adrien Bardet
-- Nicolas Dugué
-- Loïc Grobol
+- Adrien Bardet (@bardet_adrien)
+- Nicolas Dugué (@nicolasdugue)
+- Loïc Grobol (@evpokpadding)
+- Victor Connes (@victorconnes)
+
+# Défi 1 : Proposer des analyses sémantiques ou discursives des contributions du GDN
 
 ## Etude Embeddings -> Dossier EtudeEmbeddings
 
@@ -97,6 +100,89 @@ Enfin, le script crée les fichiers *frwac_common_sorted_Lowfiltered.txt* et *gd
 	6675 frwac_common_sorted_Lowfiltered.txt
 	
 Le procruste peut être appris par exemple sur la matrice *Uberfiltered* puis être exploité sur les matrices moins filtrées.
+
+En appliquant le procruste sur les matrices *Uberfiltered*, on obtient une matrice de passage d'un espace vers l'autre : pour passer de l'espace de frwac vers l'espace gdn. Une fois cette matrice utilisée pour plonger tout le vocabulaire dans le même espace (gdn), on calcule les cosines entre les mots appris sur le corpus gdn, et les mots appris sur frwac et projetés dans l'espace gdn : 
+
+![](plot/procruste_similarity_histogram.png)
+
+*En abscisse la cosine entre les paires de mots identiques. En ordonnée, le nombre de valeurs de cette cosine.*
+
+On constate que les valeurs de cosine sont relativement élevées et que la matrice de transformation donne donc de bons résultats.
+
+Cette transformation maintenant apprise, elle est appliquée sur les matrices *filtered* qui contiennent plus de vocabulaire. On obtient les résultats suivants :
+
+![](plot/procruste_similarity_histogram_fullemb.png)
+
+*En abscisse la cosine entre les paires de mots identiques. En ordonnée, le nombre de valeurs de cette cosine.*
+
+On observe cette fois-ci une distribution différente. Une partie des paires de mots est bien alignée ( > 0.6 et +). Ce sont probablement les mots ayant servi à la transformation qui aparaissent dans la matrice *Uberfiltered*. Ce n'est qu'une hypothèse, mais c'est probable. Pour le reste des mots où la cosine entre les paires est élevée, on peut supposer que leur contexte est très différent dans les deux corpus (gdn, wikipedia).
+
+On extrait maintenant les mots donc le score de proximité est inférieur à 0.1:
+
+	'alterner_v': 0.076742232979530089,
+	'annonce_n': 0.083341264905372414,
+	'casse_n': 0.075055759137257261,
+	'celer_v': 0.037822866554788948,
+	'dessus_n': 0.08343711913653229,
+	'dos_n': 0.09666339717326855,
+	'd\xc3\xa9sert_n': 0.075694814476592209,
+	'fin_a': 0.088513760662527918,
+	'gilet_n': 0.027187808135637259,
+	'gouffre_n': 0.09658397657142781,
+	'in_a': 0.053174721373324463,
+	'inscrivant_n': 0.054963623677435125,
+	'jaune_a': 0.041203639300354089,
+	'lambda_n': 0.082513121637848297,
+	'lettre_n': 0.093180713704433926,
+	'max_n': 0.037394555636065752,
+	'noir_n': 0.099285801708197785,
+	'or_n': 0.096132605256405101,
+	'parall\xc3\xa8le_n': 0.073837402448405642,
+	'parer_v': 0.079362919008232335,
+	'passe_n': -0.013185120869735112,
+	'pass\xc3\xa9_n': 0.081350110563826017,
+	'pourquoi_n': 0.037642645500488681,
+	'revanche_n': 0.058415655584439508,
+	'robot_n': 0.088048133391432248,
+	'rond_a': 0.061702293258293683,
+	'seul_n': 0.095531968476202156
+
+Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande distance sont souvent très éloignés du sens initial : 
+
+	>>> wv_from_text.most_similar("noir_n")
+		[('gris_n', 0.660394549369812), ('dissimuler_v', 0.5514659881591797), ('fraude_n', 0.5211702585220337), 	('anthracite_a', 0.508368194103241), ('contrebande_n', 0.4985315501689911), ('triche_n', 0.478316068649292), 		('tricherie_n', 0.47249671816825867), ('dissimulation_n', 0.46892794966697693), ('assedic_n', 				0.4666924774646759), 	('pourchasser_v', 0.46498119831085205)]
+
+	>>> wv_from_text.most_similar("casse_n")
+	[('rebut_n', 0.47214385867118835), ('reboire_v', 0.4429307281970978), ('jupette_n', 0.4187106192111969), ('pare-balles_n', 0.40275681018829346), ('pneumatique_n', 0.3968466520309448), ('carrosserie_n', 0.3962632417678833), ('semonce_n', 0.395529180765152), ('cella_n', 0.3929745554924011), ('neuf_n', 0.38931623101234436), ('adaptateur_n', 0.3856121301651001)]
+	
+	>>> wv_from_text.most_similar("gouffre_n")
+	[('ruineux_a', 0.42993730306625366), ('foireux_a', 0.42861253023147583), ('gabegie_n', 0.4239346385002136), ('gloriole_n', 0.4121926426887512), ('tonneau_n', 0.41163212060928345), ('notre-dame_n', 0.4110519289970398), ('fiasco_n', 0.40731561183929443), ('retardement_n', 0.40323159098625183), ('blinde_n', 0.4012852907180786), ('grandiose_a', 0.39928877353668213)]
+
+	>>> wv_from_text.most_similar("celer_v")
+	[('empois_n', 0.3745415508747101), ('bingo_n', 0.35250288248062134), ('pleure_n', 0.3525025248527527), ('sociolinguistique_a', 0.35015764832496643), ('redoutablement_adv', 0.34949833154678345), ('vertueusement_adv', 0.34830787777900696), ('exclamer_v', 0.34718388319015503), ('entre-temps_adv', 0.3467622399330139), ('déverrouiller_v', 0.3462890386581421), ('enchérir_v', 0.34553346037864685)]
+
+	>>> wv_from_text.most_similar("dos_n")
+	[('goinfrer_v', 0.4784447252750397), ('gaver_v', 0.4770304560661316), ('âne_n', 0.4549033045768738), ('engraisser_v', 0.44646206498146057), ('gave_n', 0.42493343353271484), ('graisser_v', 0.4203697443008423), ('politicard_n', 0.41065651178359985), ('putain_n', 0.4093102812767029), ('crémier_n', 0.4053325653076172), ('épinard_n', 0.4030919373035431)]
+	
+	>>> wv_from_text.most_similar("fin_a")
+	[('particule_n', 0.6498943567276001), ('abrasion_n', 0.4861348271369934), ('oxyde_n', 0.47378477454185486), ('monoxyde_n', 0.4449079632759094), ('soufre_n', 0.4418048858642578), ('cynégétique_n', 0.4368818700313568), ('azote_n', 0.4353320002555847), ('suie_n', 0.43532419204711914), ('imbrûlé_n', 0.43424344062805176), ('urée_n', 0.433788001537323)]
+
+	>>> wv_from_text.most_similar("inscrivant_n")
+	[('sourd_n', 0.8313933610916138), ('lange_n', 0.7859182357788086), ('entendant_n', 0.7362926006317139), ('appareiller_v', 0.6244175434112549), ('celtique_a', 0.5904875993728638), ('signe_n', 0.5806676149368286), ('malentendant_n', 0.5707101225852966), ('avilir_v', 0.5691885352134705), ('roman_a', 0.5687268376350403), ('récrire_v', 0.5611604452133179)]
+	
+	>>> wv_from_text.most_similar("passe_n")
+	[('inexpliqué_a', 0.4020499587059021), ('ripoux_n', 0.3987864851951599), ('moulinette_n', 0.389704167842865), ('foultitude_n', 0.3858844041824341), ('impudence_n', 0.38306063413619995), ('flinguer_v', 0.3815224766731262), ('déplier_v', 0.3813071548938751), ('tapir_v', 0.37958425283432007), ('toupet_n', 0.37840956449508667), ('violon_n', 0.37634986639022827)]
+
+	>>> wv_from_text.most_similar("rond_a")
+	[('rond-point_n', 0.6778731942176819), ('chicane_n', 0.562595009803772), ('âne_n', 0.5459263324737549), ('ralentisseur_n', 0.5195894837379456), ('carrefour_n', 0.5183433294296265), ('giratoire_n', 0.5121604204177856), ('boulodrome_n', 0.5087260007858276), ('giratoire_a', 0.5081877112388611), ('fleurissement_n', 0.5046559572219849), ('pavé_n', 0.49861809611320496)]
+	
+	>>> wv_from_text.most_similar("désert_n")
+	[('désertification_n', 0.5461689829826355), ('ophtalmologiste_n', 0.5005236864089966), ('généraliste_a', 0.48566797375679016), ('dentiste_n', 0.48412513732910156), ('généraliste_n', 0.47808805108070374), ('kinésithérapeute_n', 0.46222472190856934), ('sage-femme_n', 0.4601808786392212), ('dermatologie_n', 0.45375484228134155), ('ophtalmologie_n', 0.4531075656414032), ('radiologie_n', 0.4523189961910248)]
+	
+	>>> wv_from_text.most_similar("passé_n")
+	[('colonial_a', 0.40886175632476807), ('glorieux_a', 0.3953016996383667), ('après-guerre_n', 0.3910141587257385), ('démiurge_n', 0.38867777585983276), ('colonialiste_a', 0.3868556618690491), ('trente_n', 0.38136595487594604), ('rééditer_v', 0.3720390200614929), ('gaullien_a', 0.3715704679489136), ('relique_n', 0.3713180422782898), ('révolu_a', 0.36888670921325684)]
+
+
 
 
 ## Dépendances: 

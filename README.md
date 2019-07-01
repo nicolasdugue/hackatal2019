@@ -2,9 +2,10 @@
 
 ## Participants
 
-- Adrien Bardet
-- Nicolas Dugué
-- Loïc Grobol
+- Adrien Bardet (@bardet_adrien)
+- Nicolas Dugué (@nicolasdugue)
+- Loïc Grobol (@evpokpadding)
+- Victor Connes (@victorconnes)
 
 # Défi 1 : Proposer des analyses sémantiques ou discursives des contributions du GDN
 

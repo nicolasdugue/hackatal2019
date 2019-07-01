@@ -183,6 +183,11 @@ Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande 
 	[('colonial_a', 0.40886175632476807), ('glorieux_a', 0.3953016996383667), ('après-guerre_n', 0.3910141587257385), ('démiurge_n', 0.38867777585983276), ('colonialiste_a', 0.3868556618690491), ('trente_n', 0.38136595487594604), ('rééditer_v', 0.3720390200614929), ('gaullien_a', 0.3715704679489136), ('relique_n', 0.3713180422782898), ('révolu_a', 0.36888670921325684)]
 
 
+## Étude en fonction des départements
+
+Scores de spécificités des termes en fonction de départements, avec les départements 18, 22, 36, 48, 75
+[EtudeSelonDept/lexique_specifique_departements.csv]
+
 
 
 ## Dépendances: 

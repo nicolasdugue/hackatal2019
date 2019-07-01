@@ -77,6 +77,28 @@ Afin de ne pas considérer dans la suite un vocabulaire trop large, et surtout d
 - mariage_n
 - famille_n
 
+### Procruste
+
+Afin de comparer les représentations pré-apprises sur le corpus wikipedia, et celles apprises sur le corpus du grand débat national (gdn), nous souhaitons tenter l'alignement des deux espaces via un procruste afin ensuite d'analyser les vecteurs qui divergent le plus une fois projetés dans le même espace.
+
+Afin que l'alignement des deux espaces soit exploitable, il s'agit de n'aligner que du vocabulaire dont les représentations sont proches dans les deux corpus (wikipedia et gdn). Nous faisons l'hypothèse que c'est le cas pour les mots les plus fréquents, et nous réalisons donc l'alignement uniquement sur ce sous-ensemble du vocabulaire.
+
+Nous exploitons donc les résultats données par *distrib.py* qui a calculé la fréquence de notre vocabulaire dans le fichier **GDN_pos_filtered.txt** et stocké le résultat dans **distribution_gdn_sorted.txt**. Nous utilisons ensuite **filter_matrix_for_procruste.py** afin de créer les fichiers *frwac_common_sorted_filtered.txt* et *gdn_common_sorted_filtered.txt* qui contiennent uniquement les vecteurs des mots présents plus de **500** fois dans le corpus du GDN : 
+
+	$ wc -l frwac_common_sorted_filtered.txt 
+	3105 frwac_common_sorted_filtered.txt
+
+Le script crée également les fichiers *frwac_common_sorted_Uberfiltered.txt* et *gdn_common_sorted_Uberfiltered.txt* qui contiennent uniquement les vecteurs des mots présents plus de **5000** fois dans le corpus du GDN : 
+
+	$ wc -l frwac_common_sorted_Uberfiltered.txt 
+	615 frwac_common_sorted_Uberfiltered.txt
+	
+Enfin, le script crée les fichiers *frwac_common_sorted_Lowfiltered.txt* et *gdn_common_sorted_Lowfiltered.txt* qui contiennent uniquement les vecteurs des mots présents plus de **100** fois dans le corpus du GDN : 
+
+	wc -l frwac_common_sorted_Lowfiltered.txt 
+	6675 frwac_common_sorted_Lowfiltered.txt
+	
+Le procruste peut être appris par exemple sur la matrice *Uberfiltered* puis être exploité sur les matrices moins filtrées.
 
 
 ## Dépendances: 

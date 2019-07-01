@@ -3,7 +3,7 @@
 ## Participants
 
 - Adrien Bardet (@bardet_adrien)
-- Loïc Grobol (@evpokpadding)
+- Loïc Grobol (@xxxxxxxxxx)
 - Lucie 
 - Manon
 - Nicolas Dugué (@nicolasdugue)

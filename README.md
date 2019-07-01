@@ -189,7 +189,9 @@ Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande 
 ## Étude en fonction des départements
 
 Scores de spécificités des termes en fonction de départements, avec les départements 18, 22, 36, 48, 75
-[https://github.com/nicolasdugue/hackatal2019/EtudeSelonDept/lexique_specifique_departements.csv]
+[https://github.com/nicolasdugue/hackatal2019/blob/master/EtudeSelonDept/tablespecf.csv]
+Fréquences : 
+[https://github.com/nicolasdugue/hackatal2019/blob/master/EtudeSelonDept/eff_relatif_forme.csv]
 
 
 

@@ -109,6 +109,44 @@ En appliquant le procruste sur les matrices *Uberfiltered*, on obtient une matri
 
 On constate que les valeurs de cosine sont relativement élevées et que la matrice de transformation donne donc de bons résultats.
 
+Cette transformation maintenant apprise, elle est appliquée sur les matrices *filtered* et on obtiens les résultats suivants:
+
+![En abscis](plot/procruste_similarity_histogram_fullemb.png)
+
+*En abscisse la cosine entre les paires de mots identiques. En ordonnée, le nombre de valeurs de cette cosine.*
+
+On observe cette fois-ci une distribution différente. Une partie des mots sont bien alignés ( > 0.6 et +). Ce sont surements les mots ayant servi à la transformation qui aparaissent dans la matrice *Uberfiltered*. Ce n'est pas une généralité en revanche. Certains dont le contexte change beaucoup dans le corpus du grand débat en sortent car leur contexte change.
+
+On extrait maintenant les mots donc le score de proximité est inférieur à 0.1:
+
+	'alterner_v': 0.076742232979530089,
+	'annonce_n': 0.083341264905372414,
+	'casse_n': 0.075055759137257261,
+	'celer_v': 0.037822866554788948,
+	'dessus_n': 0.08343711913653229,
+	'dos_n': 0.09666339717326855,
+	'd\xc3\xa9sert_n': 0.075694814476592209,
+	'fin_a': 0.088513760662527918,
+	'gilet_n': 0.027187808135637259,
+	'gouffre_n': 0.09658397657142781,
+	'in_a': 0.053174721373324463,
+	'inscrivant_n': 0.054963623677435125,
+	'jaune_a': 0.041203639300354089,
+	'lambda_n': 0.082513121637848297,
+	'lettre_n': 0.093180713704433926,
+	'max_n': 0.037394555636065752,
+	'noir_n': 0.099285801708197785,
+	'or_n': 0.096132605256405101,
+	'parall\xc3\xa8le_n': 0.073837402448405642,
+	'parer_v': 0.079362919008232335,
+	'passe_n': -0.013185120869735112,
+	'pass\xc3\xa9_n': 0.081350110563826017,
+	'pourquoi_n': 0.037642645500488681,
+	'revanche_n': 0.058415655584439508,
+	'robot_n': 0.088048133391432248,
+	'rond_a': 0.061702293258293683,
+	'seul_n': 0.095531968476202156
+
 Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande distance sont souvent très éloignés du sens initial : 
 
 	>>> wv_from_text.most_similar("noir_n")

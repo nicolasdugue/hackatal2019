@@ -9,6 +9,7 @@
 - Nicolas Dugué (@nicolasdugue)
 - Sophie
 - Victor Connes (@victorconnes)
+- Yves Delpech (@YoannDupont)
 
 # Défi 1 : Proposer des analyses sémantiques ou discursives des contributions du GDN
 

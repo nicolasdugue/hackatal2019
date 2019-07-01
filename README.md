@@ -11,7 +11,7 @@
 
 ## Etude Embeddings -> Dossier EtudeEmbeddings
 
-L'objectif est de comparer les représentations apprises sur un corpus dit "neutre", i.e. non connoté politiquement, le corpus frWac (wikipedia) avec des embeddings appris sur le corpus du grand débat national GDN). L'hypothèse, c'est que le contexte spécifique du GDN doit amener à des représentations très différentes de celle du corpus neutre, marquées par des contextes liés aux sujets du GDN mais également à l'époque dans laquelle s'ancre le GDN [#exemple]. Pour cela, nous considérons des embeddings qui sont préappris avec Word2vec sur le corpus frWac (wikipedia) et qui sont ceux disponibles en ligne sur le site de Jean-Philippe Fauconnier [https://fauconnier.github.io/#data]. Ils sont appris avec cbow et de dimension 700. Nous avons choisi des embeddings appris sur des lemmes.
+L'objectif est de comparer les représentations apprises sur un corpus dit "neutre", i.e. non connoté politiquement, le corpus frWac (wikipedia) avec des embeddings appris sur le corpus du grand débat national GDN). L'hypothèse, c'est que le contexte spécifique du GDN doit amener à des représentations très différentes de celle du corpus neutre, marquées par des contextes liés aux sujets du GDN mais également à l'époque dans laquelle s'ancre le GDN [https://github.com/nicolasdugue/hackatal2019/Readme.md#exemple]. Pour cela, nous considérons des embeddings qui sont préappris avec Word2vec sur le corpus frWac (wikipedia) et qui sont ceux disponibles en ligne sur le site de Jean-Philippe Fauconnier [https://fauconnier.github.io/#data]. Ils sont appris avec cbow et de dimension 700. Nous avons choisi des embeddings appris sur des lemmes.
 
 Pour notre étude, nous conservons uniquement les catégories les plus porteuses de sens, i.e., les verbes, les noms, mais également les déterminants, adjectifs et interjections (qui peuvent servir à qualifier noms et verbes, et qui doivent par ailleurs être pour la plupart invariants d'un corpus à l'autre, ils offrent donc un point de comparaison).
 Les étiquettes morpho-syntaxiques sont marquées ainsi : 
@@ -186,7 +186,7 @@ Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande 
 ## Étude en fonction des départements
 
 Scores de spécificités des termes en fonction de départements, avec les départements 18, 22, 36, 48, 75
-[EtudeSelonDept/lexique_specifique_departements.csv]
+[https://github.com/nicolasdugue/hackatal2019/EtudeSelonDept/lexique_specifique_departements.csv]
 
 
 

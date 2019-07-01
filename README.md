@@ -98,6 +98,14 @@ Enfin, le script crée les fichiers *frwac_common_sorted_Lowfiltered.txt* et *gd
 	
 Le procruste peut être appris par exemple sur la matrice *Uberfiltered* puis être exploité sur les matrices moins filtrées.
 
+En appliquant le procruste sur les matrices *Uberfiltered*, on obtient une matrice de passage d'un espace vers l'autre : pour passer de l'espace de frwac vers l'espace gdn. Une fois cette matrice utilisée pour plonger tout le vocabulaire dans le même espace (gdn), on calcule les cosines entre les mots appris sur le corpus gdn, et les mots appris sur frwac et projetés dans l'espace gdn : 
+
+![En abscis](plot/procruste_similarity_histogram.png)
+
+*En abscisse la cosine entre les paires de mots identiques. En ordonnée, le nombre de valeurs de cette cosine.*
+
+On constate que les valeurs de cosine sont relativement élevées et que la matrice de transformation donne donc de bons résultats.
+
 
 ## Dépendances: 
 

@@ -103,19 +103,19 @@ Le procruste peut être appris par exemple sur la matrice *Uberfiltered* puis ê
 
 En appliquant le procruste sur les matrices *Uberfiltered*, on obtient une matrice de passage d'un espace vers l'autre : pour passer de l'espace de frwac vers l'espace gdn. Une fois cette matrice utilisée pour plonger tout le vocabulaire dans le même espace (gdn), on calcule les cosines entre les mots appris sur le corpus gdn, et les mots appris sur frwac et projetés dans l'espace gdn : 
 
-![En abscis](plot/procruste_similarity_histogram.png)
+![](plot/procruste_similarity_histogram.png)
 
 *En abscisse la cosine entre les paires de mots identiques. En ordonnée, le nombre de valeurs de cette cosine.*
 
 On constate que les valeurs de cosine sont relativement élevées et que la matrice de transformation donne donc de bons résultats.
 
-Cette transformation maintenant apprise, elle est appliquée sur les matrices *filtered* et on obtiens les résultats suivants:
+Cette transformation maintenant apprise, elle est appliquée sur les matrices *filtered* qui contiennent plus de vocabulaire. On obtient les résultats suivants :
 
-![En abscis](plot/procruste_similarity_histogram_fullemb.png)
+![](plot/procruste_similarity_histogram_fullemb.png)
 
 *En abscisse la cosine entre les paires de mots identiques. En ordonnée, le nombre de valeurs de cette cosine.*
 
-On observe cette fois-ci une distribution différente. Une partie des mots sont bien alignés ( > 0.6 et +). Ce sont surements les mots ayant servi à la transformation qui aparaissent dans la matrice *Uberfiltered*. Ce n'est pas une généralité en revanche. Certains dont le contexte change beaucoup dans le corpus du grand débat en sortent car leur contexte change.
+On observe cette fois-ci une distribution différente. Une partie des paires de mots est bien alignée ( > 0.6 et +). Ce sont probablement les mots ayant servi à la transformation qui aparaissent dans la matrice *Uberfiltered*. Ce n'est qu'une hypothèse, mais c'est probable. Pour le reste des mots où la cosine entre les paires est élevée, on peut supposer que leur contexte est très différent dans les deux corpus (gdn, wikipedia).
 
 On extrait maintenant les mots donc le score de proximité est inférieur à 0.1:
 

@@ -59,6 +59,8 @@ Afin de ne pas considérer dans la suite un vocabulaire trop large, et surtout d
 	>>> wv_from_text.most_similar("gilet_n")
 	[('jaune_a', 0.9214566946029663), ('jaune_n', 0.6313734650611877), ('enfiler_v', 0.5787583589553833), ('détonateur_n', 0.5656031370162964), ('jacquerie_n', 0.5498842000961304), ('pacifiste_a', 	0.5418269634246826), ('contestataire_n', 0.5362532734870911), ('étincelle_n', 0.5354418754577637), ('manif_n', 0.5342225432395935), ('chienlit_n', 0.5236349105834961)]
 
+![gilet](plot/gilet.png)
+
 #### Gilet frWac
 
 	>>> from gensim.models import KeyedVectors
@@ -153,6 +155,19 @@ On extrait maintenant les mots donc le score de proximité est inférieur à 0.1
 
 Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande distance sont souvent très éloignés du sens initial : 
 
+![désert](plot/desert.png)
+
+	>>> wv_from_text.most_similar("désert_n")
+	[('désertification_n', 0.5461689829826355), ('ophtalmologiste_n', 0.5005236864089966), ('généraliste_a', 0.48566797375679016), ('dentiste_n', 0.48412513732910156), ('généraliste_n', 0.47808805108070374), ('kinésithérapeute_n', 0.46222472190856934), ('sage-femme_n', 0.4601808786392212), ('dermatologie_n', 0.45375484228134155), ('ophtalmologie_n', 0.4531075656414032), ('radiologie_n', 0.4523189961910248)]
+	
+![gilet](plot/passe.png)
+
+	>>> wv_from_text.most_similar("passé_n")
+	[('colonial_a', 0.40886175632476807), ('glorieux_a', 0.3953016996383667), ('après-guerre_n', 0.3910141587257385), ('démiurge_n', 0.38867777585983276), ('colonialiste_a', 0.3868556618690491), ('trente_n', 0.38136595487594604), ('rééditer_v', 0.3720390200614929), ('gaullien_a', 0.3715704679489136), ('relique_n', 0.3713180422782898), ('révolu_a', 0.36888670921325684)]
+
+
+Sur le grand débart, *noir* semble lié au travail dissimulé essentiellement, et non aux couleurs : 
+
 	>>> wv_from_text.most_similar("noir_n")
 		[('gris_n', 0.660394549369812), ('dissimuler_v', 0.5514659881591797), ('fraude_n', 0.5211702585220337), 	('anthracite_a', 0.508368194103241), ('contrebande_n', 0.4985315501689911), ('triche_n', 0.478316068649292), 		('tricherie_n', 0.47249671816825867), ('dissimulation_n', 0.46892794966697693), ('assedic_n', 				0.4666924774646759), 	('pourchasser_v', 0.46498119831085205)]
 
@@ -174,25 +189,38 @@ Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande 
 	>>> wv_from_text.most_similar("inscrivant_n")
 	[('sourd_n', 0.8313933610916138), ('lange_n', 0.7859182357788086), ('entendant_n', 0.7362926006317139), ('appareiller_v', 0.6244175434112549), ('celtique_a', 0.5904875993728638), ('signe_n', 0.5806676149368286), ('malentendant_n', 0.5707101225852966), ('avilir_v', 0.5691885352134705), ('roman_a', 0.5687268376350403), ('récrire_v', 0.5611604452133179)]
 	
-	>>> wv_from_text.most_similar("passe_n")
-	[('inexpliqué_a', 0.4020499587059021), ('ripoux_n', 0.3987864851951599), ('moulinette_n', 0.389704167842865), ('foultitude_n', 0.3858844041824341), ('impudence_n', 0.38306063413619995), ('flinguer_v', 0.3815224766731262), ('déplier_v', 0.3813071548938751), ('tapir_v', 0.37958425283432007), ('toupet_n', 0.37840956449508667), ('violon_n', 0.37634986639022827)]
+
 
 	>>> wv_from_text.most_similar("rond_a")
 	[('rond-point_n', 0.6778731942176819), ('chicane_n', 0.562595009803772), ('âne_n', 0.5459263324737549), ('ralentisseur_n', 0.5195894837379456), ('carrefour_n', 0.5183433294296265), ('giratoire_n', 0.5121604204177856), ('boulodrome_n', 0.5087260007858276), ('giratoire_a', 0.5081877112388611), ('fleurissement_n', 0.5046559572219849), ('pavé_n', 0.49861809611320496)]
 	
-	>>> wv_from_text.most_similar("désert_n")
-	[('désertification_n', 0.5461689829826355), ('ophtalmologiste_n', 0.5005236864089966), ('généraliste_a', 0.48566797375679016), ('dentiste_n', 0.48412513732910156), ('généraliste_n', 0.47808805108070374), ('kinésithérapeute_n', 0.46222472190856934), ('sage-femme_n', 0.4601808786392212), ('dermatologie_n', 0.45375484228134155), ('ophtalmologie_n', 0.4531075656414032), ('radiologie_n', 0.4523189961910248)]
-	
-	>>> wv_from_text.most_similar("passé_n")
-	[('colonial_a', 0.40886175632476807), ('glorieux_a', 0.3953016996383667), ('après-guerre_n', 0.3910141587257385), ('démiurge_n', 0.38867777585983276), ('colonialiste_a', 0.3868556618690491), ('trente_n', 0.38136595487594604), ('rééditer_v', 0.3720390200614929), ('gaullien_a', 0.3715704679489136), ('relique_n', 0.3713180422782898), ('révolu_a', 0.36888670921325684)]
+
+
+
 
 
 ## Étude en fonction des départements
 
 Scores de spécificités des termes en fonction de départements, avec les départements 18, 22, 36, 48, 75
 [https://github.com/nicolasdugue/hackatal2019/blob/master/EtudeSelonDept/tablespecf.csv]
+
 Fréquences : 
 [https://github.com/nicolasdugue/hackatal2019/blob/master/EtudeSelonDept/eff_relatif_forme.csv]
+
+Pour ces corpus, le résultat du clustering hiérarchique Iramutek à 18 classes facilement interprétables :
+
+![HAC](plot/dendrogramme_1.png)
+
+La répartition de ces classes en fonction des départements est donnée par le diagramme suivant : 
+![dept](plot/dep_par_classe.png)
+
+
+
+## Étude sur les syntagmes nominaux
+
+La catégorisation automatique en utilisant les syntagmes nominaux détectés par Yves Delpech est visualisable sous forme de graphe : [http://lu.lou.free.fr/hackatal/yoann/network/index.html]
+
+
 
 
 

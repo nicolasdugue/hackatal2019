@@ -166,10 +166,17 @@ Une fois appliqué sur une matrice plus grande, les mots qui ont la plus grande 
 	[('colonial_a', 0.40886175632476807), ('glorieux_a', 0.3953016996383667), ('après-guerre_n', 0.3910141587257385), ('démiurge_n', 0.38867777585983276), ('colonialiste_a', 0.3868556618690491), ('trente_n', 0.38136595487594604), ('rééditer_v', 0.3720390200614929), ('gaullien_a', 0.3715704679489136), ('relique_n', 0.3713180422782898), ('révolu_a', 0.36888670921325684)]
 
 
-Sur le grand débart, *noir* semble lié au travail dissimulé essentiellement, et non aux couleurs : 
+Dans le grand débat, *noir* semble lié au travail dissimulé essentiellement, et non aux couleurs : 
 
 	>>> wv_from_text.most_similar("noir_n")
 		[('gris_n', 0.660394549369812), ('dissimuler_v', 0.5514659881591797), ('fraude_n', 0.5211702585220337), 	('anthracite_a', 0.508368194103241), ('contrebande_n', 0.4985315501689911), ('triche_n', 0.478316068649292), 		('tricherie_n', 0.47249671816825867), ('dissimulation_n', 0.46892794966697693), ('assedic_n', 				0.4666924774646759), 	('pourchasser_v', 0.46498119831085205)]
+
+De même, le lemme *fin* semble utilisé dans ce corpus pour se référer aux particules fines, donc à des questions d'écologie :
+
+	>>> wv_from_text.most_similar("fin_a")
+	[('particule_n', 0.6498943567276001), ('abrasion_n', 0.4861348271369934), ('oxyde_n', 0.47378477454185486), ('monoxyde_n', 0.4449079632759094), ('soufre_n', 0.4418048858642578), ('cynégétique_n', 0.4368818700313568), ('azote_n', 0.4353320002555847), ('suie_n', 0.43532419204711914), ('imbrûlé_n', 0.43424344062805176), ('urée_n', 0.433788001537323)]
+
+Quelques exemples supplémentaires :
 
 	>>> wv_from_text.most_similar("casse_n")
 	[('rebut_n', 0.47214385867118835), ('reboire_v', 0.4429307281970978), ('jupette_n', 0.4187106192111969), ('pare-balles_n', 0.40275681018829346), ('pneumatique_n', 0.3968466520309448), ('carrosserie_n', 0.3962632417678833), ('semonce_n', 0.395529180765152), ('cella_n', 0.3929745554924011), ('neuf_n', 0.38931623101234436), ('adaptateur_n', 0.3856121301651001)]
@@ -177,20 +184,9 @@ Sur le grand débart, *noir* semble lié au travail dissimulé essentiellement, 
 	>>> wv_from_text.most_similar("gouffre_n")
 	[('ruineux_a', 0.42993730306625366), ('foireux_a', 0.42861253023147583), ('gabegie_n', 0.4239346385002136), ('gloriole_n', 0.4121926426887512), ('tonneau_n', 0.41163212060928345), ('notre-dame_n', 0.4110519289970398), ('fiasco_n', 0.40731561183929443), ('retardement_n', 0.40323159098625183), ('blinde_n', 0.4012852907180786), ('grandiose_a', 0.39928877353668213)]
 
-	>>> wv_from_text.most_similar("celer_v")
-	[('empois_n', 0.3745415508747101), ('bingo_n', 0.35250288248062134), ('pleure_n', 0.3525025248527527), ('sociolinguistique_a', 0.35015764832496643), ('redoutablement_adv', 0.34949833154678345), ('vertueusement_adv', 0.34830787777900696), ('exclamer_v', 0.34718388319015503), ('entre-temps_adv', 0.3467622399330139), ('déverrouiller_v', 0.3462890386581421), ('enchérir_v', 0.34553346037864685)]
-
 	>>> wv_from_text.most_similar("dos_n")
 	[('goinfrer_v', 0.4784447252750397), ('gaver_v', 0.4770304560661316), ('âne_n', 0.4549033045768738), ('engraisser_v', 0.44646206498146057), ('gave_n', 0.42493343353271484), ('graisser_v', 0.4203697443008423), ('politicard_n', 0.41065651178359985), ('putain_n', 0.4093102812767029), ('crémier_n', 0.4053325653076172), ('épinard_n', 0.4030919373035431)]
 	
-	>>> wv_from_text.most_similar("fin_a")
-	[('particule_n', 0.6498943567276001), ('abrasion_n', 0.4861348271369934), ('oxyde_n', 0.47378477454185486), ('monoxyde_n', 0.4449079632759094), ('soufre_n', 0.4418048858642578), ('cynégétique_n', 0.4368818700313568), ('azote_n', 0.4353320002555847), ('suie_n', 0.43532419204711914), ('imbrûlé_n', 0.43424344062805176), ('urée_n', 0.433788001537323)]
-
-	>>> wv_from_text.most_similar("inscrivant_n")
-	[('sourd_n', 0.8313933610916138), ('lange_n', 0.7859182357788086), ('entendant_n', 0.7362926006317139), ('appareiller_v', 0.6244175434112549), ('celtique_a', 0.5904875993728638), ('signe_n', 0.5806676149368286), ('malentendant_n', 0.5707101225852966), ('avilir_v', 0.5691885352134705), ('roman_a', 0.5687268376350403), ('récrire_v', 0.5611604452133179)]
-	
-
-
 	>>> wv_from_text.most_similar("rond_a")
 	[('rond-point_n', 0.6778731942176819), ('chicane_n', 0.562595009803772), ('âne_n', 0.5459263324737549), ('ralentisseur_n', 0.5195894837379456), ('carrefour_n', 0.5183433294296265), ('giratoire_n', 0.5121604204177856), ('boulodrome_n', 0.5087260007858276), ('giratoire_a', 0.5081877112388611), ('fleurissement_n', 0.5046559572219849), ('pavé_n', 0.49861809611320496)]
 	

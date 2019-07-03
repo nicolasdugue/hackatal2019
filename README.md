@@ -2,14 +2,11 @@
 
 ## Participants
 
-- Adrien Bardet (@bardet_adrien)
-- Loïc Grobol (@xxxxxxxxxx)
-- Lucie 
-- Manon
-- Nicolas Dugué (@nicolasdugue)
-- Sophie
-- Victor Connes (@victorconnes)
-- Yves Delpech (@YoannDupont)
+- Adrien Bardet (LIUM)
+- Lucie Loubère
+- Nicolas Dugué (LIUM)
+- Sophie Hu
+- Yves Delpech
 
 # Défi 1 : Proposer des analyses sémantiques ou discursives des contributions du GDN
 
@@ -215,8 +212,6 @@ La répartition de ces classes en fonction des départements est donnée par le 
 ## Étude sur les syntagmes nominaux
 
 La catégorisation automatique en utilisant les syntagmes nominaux détectés par Yves Delpech est visualisable sous forme de graphe : [http://lu.lou.free.fr/hackatal/yoann/network/index.html]
-
-
 
 
 

@@ -3,7 +3,7 @@
 ## Participants
 
 - Adrien Bardet (LIUM)
-- Lucie Loubère
+- Lucie Loubère	(Lerass)
 - Nicolas Dugué (LIUM)
 - Sophie Hu
 - Yves Delpech
